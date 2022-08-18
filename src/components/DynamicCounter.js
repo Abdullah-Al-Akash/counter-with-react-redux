@@ -1,12 +1,14 @@
-import { connect, useSelector, useDispatch } from 'react-redux';
-import { decrement, increment } from '../redux/counter/actions';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { decrement, increment } from '../redux/DynamicCounter/actions';
 
-function HooksCounter() {
-        const count = useSelector((state) => state.counter.value);
+const DynamicCounter = () => {
+        const count = useSelector((state) => state.dynamicCounter.value);
 
         const dispatch = useDispatch();
 
         const handleIncrement = (value) => {
+                console.log('Increment')
                 dispatch(increment(value))
         }
 
@@ -15,24 +17,24 @@ function HooksCounter() {
         }
         return (
                 <div className="p-4 h-auto flex flex-col items-center justify-center space-y-5 bg-white rounded shadow">
-                        <h3 className="text-xl font-bold">Hooks Counter</h3>
+                        <h3 className="text-xl font-bold">Dynamic Counter</h3>
                         <div className="text-2xl font-semibold">{count}</div>
                         <div className="flex space-x-3">
                                 <button
                                         className="bg-indigo-400 text-white px-3 py-2 rounded shadow"
-                                        onClick={() => handleIncrement(5)}
+                                        onClick={() => handleIncrement(10)}
                                 >
                                         Increment
                                 </button>
                                 <button
                                         className="bg-red-400 text-white px-3 py-2 rounded shadow"
-                                        onClick={() => handleDecrement(2)}
+                                        onClick={() => handleDecrement(10)}
                                 >
                                         Decrement
                                 </button>
                         </div>
                 </div>
         );
-}
+};
 
-export default HooksCounter;
+export default DynamicCounter;
