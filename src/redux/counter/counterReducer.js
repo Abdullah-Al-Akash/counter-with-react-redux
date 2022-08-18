@@ -2,7 +2,7 @@ import { DECREMENT, INCREMENT } from "./actionsType";
 
 
 const initialState = {
-        value: 0,
+        value: 20,
 };
 
 const counterReducer = (state = initialState, action) => {
@@ -10,13 +10,13 @@ const counterReducer = (state = initialState, action) => {
                 case INCREMENT:
                         return {
                                 ...state,
-                                value: state.value + 1
+                                value: state.value + action.payload
                         }
 
                 case DECREMENT:
                         return {
                                 ...state,
-                                value: state.value - 1
+                                value: state.value - action.payload
                         }
 
                 default:
