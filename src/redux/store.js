@@ -5,7 +5,7 @@ import logger from 'redux-logger';
 import { composeWithDevTools } from "redux-devtools-extension";
 
 
-
+// Store:
 const store = createStore(rootReducers, composeWithDevTools(applyMiddleware(logger, myLogger)));
 
 export default store;
